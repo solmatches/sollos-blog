@@ -22,7 +22,7 @@
   "plugins": ["react", "@typescript-eslint"],
   "ignorePatterns": ["dist/", "node_modules/"],
   "rules": {
-    "react/jsx-uses-react": "on",
-    "react/react-in-jsx-scope": 2
+    "react/jsx-uses-react": "error",
+    "react/react-in-jsx-scope": "error"
   }
 }
