@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import { css, Global } from '@emotion/react'
 
 interface InfoPageProps {
   data: {
@@ -23,8 +22,7 @@ const InfoPage = function ({
 }: InfoPageProps) {
   return (
     <div>
-      <Global styles={globalStyle} />
-      <div css={TextStyle}>{title}</div>
+      <div>{title}</div>
       {description} {author}
       <Link to="/">To Main</Link>
     </div>
@@ -33,21 +31,6 @@ const InfoPage = function ({
 
 export default InfoPage
 
-const TextStyle = css`
-  font-size: 18px;
-  font-weight: 700;
-  color: gray;
-`
-
-const globalStyle = css`
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
-    font-size: 20px;
-  }
-`
 // gatsby에서는 기본적으로 pages 내부 파일, gatsbyAPI를 통해 생성해주는 페이지의 템플릿에서만 쿼리 정의가 가능하다.
 // 일반 컴포넌트에서는 변수로는 정의가 불가능하고, StaticQuery 기능을 통해 정의할 수 있다.
 // 쿼리를 export 하면 개츠비 내부적으로 요청을 보내고 데이터를 컴포넌트의 props.data로 전달해준다.
