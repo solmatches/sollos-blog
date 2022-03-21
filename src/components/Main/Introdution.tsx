@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import ProfileImage from './ProfileImage'
-import { COLOR, SIZE, TYPOGRAPHY } from '../../constants'
+import { COLOR, SIZE, TYPOGRAPHY } from '~/styles'
 
 const Introdution = function () {
   return (
@@ -35,14 +35,29 @@ const Wrapper = styled.div`
   width: ${SIZE.content_width};
   height: 400px;
   margin: 0 auto;
+  padding: 0 1.8rem;
+
+  @media (max-width: ${SIZE.content_width}) {
+    width: 100%;
+    height: 300px;
+    padding: 0 20px;
+  }
 `
 
 const SubTitle = styled.div`
   font-size: ${TYPOGRAPHY.subTitle};
   font-weight: 400;
+
+  @media (max-width: ${SIZE.content_width}) {
+    font-size: ${TYPOGRAPHY.medium};
+  }
 `
 const Title = styled.div`
   margin-top: 5px;
   font-size: ${TYPOGRAPHY.title};
   font-weight: 700;
+
+  @media (max-width: ${SIZE.content_width}) {
+    font-size: ${TYPOGRAPHY.smallTitle};
+  }
 `

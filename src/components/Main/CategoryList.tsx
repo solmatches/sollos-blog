@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
-import { SIZE, TYPOGRAPHY } from '~/constants'
+import { SIZE, TYPOGRAPHY } from '~/styles'
 
 interface Props {
   selectedCategory: string
@@ -25,7 +25,9 @@ const CategoryList = function ({ selectedCategory, categoryList }: Props) {
 
 export default CategoryList
 
-const CategoryItem = styled(Link)<{ active: boolean }>`
+const CategoryItem = styled(Link, {
+  shouldForwardProp: prop => prop !== 'active',
+})<{ active: boolean }>`
   margin-right: 20px;
   padding: 5px 0;
   font-size: ${TYPOGRAPHY.large};
@@ -35,6 +37,10 @@ const CategoryItem = styled(Link)<{ active: boolean }>`
   &:last-of-type {
     margin-right: 0;
   }
+
+  @media (max-width: ${SIZE.content_width}) {
+    font-size: ${TYPOGRAPHY.medium};
+  }
 `
 
 const Wrapper = styled.div`
@@ -42,4 +48,10 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   width: ${SIZE.content_width};
   margin: 100px auto 0;
+
+  @media (max-width: ${SIZE.content_width}) {
+    width: 100%;
+    margin-top: 50px;
+    padding: 0 20px;
+  }
 `

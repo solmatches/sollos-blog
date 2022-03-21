@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { SIZE, TYPOGRAPHY } from '~/styles'
 
 const Footer = function () {
   return <Wrapper>방문해주셔서 감사합니다! 많이 웃는 하루되세요!😊</Wrapper>
@@ -14,4 +15,8 @@ const Wrapper = styled.footer`
   font-size: 15px;
   text-align: center;
   line-height: 1.5;
+
+  @media (max-width: ${SIZE.content_width}) {
+    font-size: ${TYPOGRAPHY.small};
+  }
 `

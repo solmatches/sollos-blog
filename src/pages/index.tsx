@@ -4,6 +4,7 @@ import GlobalStyle from 'components/Common/GlobalStyle'
 import Introdution from 'components/Main/Introdution'
 import Footer from 'components/Common/Footer'
 import CategoryList from 'components/Main/CategoryList'
+import PostList from 'components/Main/PostList'
 /**
  * 개츠비는 페이지가 로드되면 리소스 로드 속도를 높이기 위해 현재 페이지에서 사용되는 모든 링크를 찾은 후, 각 링크의 페이지를 미리 로드한다.
  */
@@ -20,6 +21,7 @@ const Page = function () {
       <GlobalStyle />
       <Introdution />
       <CategoryList selectedCategory="Web" categoryList={CATEGORY_LIST} />
+      <PostList />
       <Footer />
     </Container>
   )

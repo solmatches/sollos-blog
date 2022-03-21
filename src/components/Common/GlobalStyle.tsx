@@ -14,6 +14,7 @@ const defaultStyle = css`
   body,
   #___gatsby {
     height: 100%;
+    font-size: 62.5%;
   }
 
   a,
