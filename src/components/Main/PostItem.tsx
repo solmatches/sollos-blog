@@ -1,27 +1,21 @@
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import { COLOR, lineClamp, TYPOGRAPHY } from '~/styles'
+import { PostItemProps } from '~/types/post'
 
-interface Props {
-  title: string
-  date: string
-  categories: string[]
-  summary: string
-  thumbnail: string
-  link: string
-}
+type PostItemType = PostItemProps & { link: string }
 
 const PostItem = function ({
   title,
   date,
   categories,
   summary,
-  thumbnail,
+  thumbnail: { publicURL },
   link,
-}: Props) {
+}: PostItemType) {
   return (
     <Wrapper to={link}>
-      <ThumbnailImage src={thumbnail} alt="포스트 이미지" />
+      <ThumbnailImage src={publicURL} alt="포스트 이미지" />
       <Content>
         <Title>{title}</Title>
         <Date>{date}</Date>
