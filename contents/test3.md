@@ -1,8 +1,8 @@
 ---
-date: '2022-03-22'
+date: '2022-03-24'
 title: 'Test'
-categories: ['Web', 'SEO']
-summary: '검색 페이지 최상단에 노출 시키기위해 어떤 최적화 작업을 하는지 알아보자'
+categories: ['Web']
+summary: '웹이란 무엇일까?'
 thumbnail: './rhfeoddl.jpg'
 ---
 

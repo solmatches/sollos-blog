@@ -1,12 +1,35 @@
 import styled from '@emotion/styled'
+import { useMemo } from 'react'
+
+import { DEFAULT_CATEGORY } from '~/constants/category'
 import { SIZE } from '~/styles'
-import { PostProps } from '~/types/post'
+import { CategoryListProps, PostProps } from '~/types/post'
+
 import PostItem from './PostItem'
 
-const PostList = function ({ posts }: { posts: PostProps[] }) {
+const PostList = function ({
+  selectedCategory,
+  posts,
+}: {
+  selectedCategory: CategoryListProps['selectedCategory']
+  posts: PostProps[]
+}) {
+  const postListdata = useMemo(() => {
+    return posts.filter(
+      ({
+        node: {
+          frontmatter: { categories },
+        },
+      }) => {
+        return selectedCategory !== DEFAULT_CATEGORY
+          ? categories.includes(selectedCategory)
+          : true
+      },
+    )
+  }, [selectedCategory])
   return (
     <Wrapper>
-      {posts.map(({ node: { id, frontmatter } }) => (
+      {postListdata.map(({ node: { id, frontmatter } }) => (
         <PostItem {...frontmatter} key={id} link="https://www.google.co.kr/" />
       ))}
     </Wrapper>

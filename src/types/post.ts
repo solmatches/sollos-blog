@@ -27,3 +27,8 @@ export interface PostDataProps {
     file: ImageSharpType
   }
 }
+
+export interface CategoryListProps {
+  selectedCategory: string
+  categoryList: { [key: string]: number }
+}

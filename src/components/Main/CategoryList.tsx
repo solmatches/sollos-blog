@@ -1,13 +1,13 @@
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
+
 import { SIZE, TYPOGRAPHY } from '~/styles'
+import { CategoryListProps } from '~/types/post'
 
-interface Props {
-  selectedCategory: string
-  categoryList: { [key: string]: number }
-}
-
-const CategoryList = function ({ selectedCategory, categoryList }: Props) {
+const CategoryList = function ({
+  selectedCategory,
+  categoryList,
+}: CategoryListProps) {
   return (
     <Wrapper>
       {Object.entries(categoryList).map(([name, count]) => (
