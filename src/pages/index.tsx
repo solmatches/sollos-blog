@@ -21,12 +21,15 @@ const CATEGORY_LIST = {
 const Page = function ({
   data: {
     allMarkdownRemark: { edges },
+    file: {
+      childImageSharp: { gatsbyImageData },
+    },
   },
 }: PostDataProps) {
   return (
     <Container>
       <GlobalStyle />
-      <Introdution />
+      <Introdution profileImage={gatsbyImageData} />
       <CategoryList selectedCategory="Web" categoryList={CATEGORY_LIST} />
       <PostList posts={edges} />
       <Footer />
@@ -50,10 +53,17 @@ export const getPostList = graphql`
             date(formatString: "YYYY.MM.DD")
             categories
             thumbnail {
-              publicURL
+              childImageSharp {
+                gatsbyImageData(width: 768, height: 400)
+              }
             }
           }
         }
+      }
+    }
+    file(name: { eq: "profile-image" }) {
+      childImageSharp {
+        gatsbyImageData(width: 120, height: 120)
       }
     }
   }

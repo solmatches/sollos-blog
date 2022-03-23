@@ -1,12 +1,19 @@
 import styled from '@emotion/styled'
-import ProfileImage from './ProfileImage'
+import { IGatsbyImageData } from 'gatsby-plugin-image'
+
 import { COLOR, SIZE, TYPOGRAPHY } from '~/styles'
 
-const Introdution = function () {
+import ProfileImage from './ProfileImage'
+
+const Introdution = function ({
+  profileImage,
+}: {
+  profileImage: IGatsbyImageData
+}) {
   return (
     <BackgroundContainer>
       <Wrapper>
-        <ProfileImage />
+        <ProfileImage profileImage={profileImage} />
         <div>
           <SubTitle>안녕하세요!</SubTitle>
           <Title>프론트엔드 개발자 김소라입니다.</Title>

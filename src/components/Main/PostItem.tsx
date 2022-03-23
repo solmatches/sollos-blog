@@ -1,5 +1,7 @@
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
+
 import { COLOR, lineClamp, TYPOGRAPHY } from '~/styles'
 import { PostItemProps } from '~/types/post'
 
@@ -10,12 +12,14 @@ const PostItem = function ({
   date,
   categories,
   summary,
-  thumbnail: { publicURL },
+  thumbnail: {
+    childImageSharp: { gatsbyImageData },
+  },
   link,
 }: PostItemType) {
   return (
     <Wrapper to={link}>
-      <ThumbnailImage src={publicURL} alt="포스트 이미지" />
+      <ThumbnailImage image={gatsbyImageData} alt="포스트 이미지" />
       <Content>
         <Title>{title}</Title>
         <Date>{date}</Date>
@@ -79,11 +83,10 @@ const Content = styled.div`
   padding: 15px;
 `
 
-const ThumbnailImage = styled.img`
+const ThumbnailImage = styled(GatsbyImage)`
   width: 100%;
   height: 200px;
   border-radius: 10px 10px 0 0;
-  object-fit: cover;
 `
 
 const Wrapper = styled(Link)`
