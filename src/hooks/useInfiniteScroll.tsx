@@ -4,8 +4,8 @@ const INTITIAL_PAGE = 1
 
 interface Props<T> {
   allPostCount: number
-  resetDeps?: T
   perPageCount?: number
+  resetDeps?: T
 }
 
 interface ReturnProps {
@@ -15,8 +15,8 @@ interface ReturnProps {
 
 export function useInfiniteScroll<T>({
   allPostCount = 0,
-  resetDeps,
   perPageCount = 5,
+  resetDeps,
 }: Props<T>): ReturnProps {
   const target = useRef<HTMLDivElement | null>(null)
   const [pageCount, setPageCount] = useState(INTITIAL_PAGE)

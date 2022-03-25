@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+
 import { SIZE, TYPOGRAPHY } from '~/styles'
 
 const Footer = function () {
