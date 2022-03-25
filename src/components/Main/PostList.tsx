@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { useInfiniteScroll } from 'hooks/useInfiniteScroll'
 import { useMemo } from 'react'
 
 import { DEFAULT_CATEGORY } from '~/constants/category'
@@ -14,22 +15,11 @@ const PostList = function ({
   selectedCategory: CategoryListProps['selectedCategory']
   posts: PostProps[]
 }) {
-  const postListdata = useMemo(() => {
-    return posts.filter(
-      ({
-        node: {
-          frontmatter: { categories },
-        },
-      }) => {
-        return selectedCategory !== DEFAULT_CATEGORY
-          ? categories.includes(selectedCategory)
-          : true
-      },
-    )
-  }, [selectedCategory])
+  const { target, contentList } = useInfiniteScroll(selectedCategory, posts)
+
   return (
-    <Wrapper>
-      {postListdata.map(({ node: { id, frontmatter } }) => (
+    <Wrapper ref={target}>
+      {contentList.map(({ node: { id, frontmatter } }) => (
         <PostItem {...frontmatter} key={id} link="https://www.google.co.kr/" />
       ))}
     </Wrapper>
