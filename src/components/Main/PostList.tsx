@@ -15,12 +15,31 @@ const PostList = function ({
   selectedCategory: CategoryListProps['selectedCategory']
   posts: PostProps[]
 }) {
-  const { target, contentList } = useInfiniteScroll(selectedCategory, posts)
+  const matchedPosts = useMemo(() => {
+    return posts.filter(
+      ({
+        node: {
+          frontmatter: { categories },
+        },
+      }) => {
+        return selectedCategory !== DEFAULT_CATEGORY
+          ? categories.includes(selectedCategory)
+          : true
+      },
+    )
+  }, [selectedCategory])
+
+  const { target: scrollTarget, currentItemCount } = useInfiniteScroll({
+    allPostCount: matchedPosts.length,
+    resetDeps: selectedCategory,
+  })
+
+  const displayPosts = matchedPosts.slice(0, currentItemCount)
 
   return (
-    <Wrapper ref={target}>
-      {contentList.map(({ node: { id, frontmatter } }) => (
-        <PostItem {...frontmatter} key={id} link="https://www.google.co.kr/" />
+    <Wrapper ref={scrollTarget}>
+      {displayPosts.map(({ node: { id, frontmatter } }) => (
+        <PostItem {...frontmatter} key={id} link="/" />
       ))}
     </Wrapper>
   )

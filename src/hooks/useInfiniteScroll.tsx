@@ -1,61 +1,50 @@
-import { RefObject, useEffect, useMemo, useRef, useState } from 'react'
+import { RefObject, useEffect, useRef, useState } from 'react'
 
-import { DEFAULT_CATEGORY } from '~/constants/category'
-import { CategoryListProps, PostProps } from '~/types/post'
-
-const ITEMS_PER_PAGE = 5
 const INTITIAL_PAGE = 1
 
-type RefType = HTMLDivElement
-
-interface ReturnProps {
-  target: RefObject<RefType>
-  contentList: PostProps[]
+interface Props<T> {
+  allPostCount: number
+  resetDeps?: T
+  perPageCount?: number
 }
 
-export function useInfiniteScroll(
-  selectedCategory: CategoryListProps['selectedCategory'],
-  posts: PostProps[],
-): ReturnProps {
-  const target = useRef<RefType | null>(null)
-  const [pageCount, setPageCount] = useState(INTITIAL_PAGE)
+interface ReturnProps {
+  target: RefObject<HTMLDivElement>
+  currentItemCount: number
+}
 
-  const postListdata = useMemo(() => {
-    return posts.filter(
-      ({
-        node: {
-          frontmatter: { categories },
-        },
-      }) => {
-        return selectedCategory !== DEFAULT_CATEGORY
-          ? categories.includes(selectedCategory)
-          : true
-      },
-    )
-  }, [selectedCategory])
+export function useInfiniteScroll<T>({
+  allPostCount = 0,
+  resetDeps,
+  perPageCount = 5,
+}: Props<T>): ReturnProps {
+  const target = useRef<HTMLDivElement | null>(null)
+  const [pageCount, setPageCount] = useState(INTITIAL_PAGE)
 
   const observer = new IntersectionObserver((entries, observer) => {
     if (!entries[0].isIntersecting) return
-    setPageCount(value => value + 1)
+    setPageCount(count => count + 1)
     observer.disconnect()
   })
 
   useEffect(() => {
     setPageCount(INTITIAL_PAGE)
-  }, [selectedCategory])
+  }, [resetDeps])
 
   useEffect(() => {
     if (!target.current || !target.current.children.length) return
-    if (ITEMS_PER_PAGE * pageCount >= postListdata.length) return
+    if (pageCount * perPageCount >= allPostCount) return
 
     const { children: containerChilds } = target.current
     const lastChildren = containerChilds[containerChilds.length - 1]
 
     observer.observe(lastChildren)
-  }, [pageCount, selectedCategory])
+
+    return () => observer.disconnect()
+  }, [allPostCount, pageCount])
 
   return {
     target,
-    contentList: postListdata.slice(0, pageCount * ITEMS_PER_PAGE),
+    currentItemCount: pageCount * perPageCount,
   }
 }
