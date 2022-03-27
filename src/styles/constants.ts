@@ -1,12 +1,13 @@
 export const COLOR = {
-  background_light: '#485563',
-  background_dark: '#29323c',
+  backgroundLight: '#485563',
+  backgroundDark: '#29323c',
   black: '#000',
   white: '#fff',
 } as const
 
 export const SIZE = {
-  content_width: '768px',
+  contentWidth: '768px',
+  headerHeight: '400px',
 } as const
 
 export const TYPOGRAPHY = {

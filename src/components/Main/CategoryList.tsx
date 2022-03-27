@@ -38,7 +38,7 @@ const CategoryItem = styled(Link, {
     margin-right: 0;
   }
 
-  @media (max-width: ${SIZE.content_width}) {
+  @media (max-width: ${SIZE.contentWidth}) {
     font-size: ${TYPOGRAPHY.medium};
   }
 `
@@ -46,10 +46,10 @@ const CategoryItem = styled(Link, {
 const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: ${SIZE.content_width};
+  width: ${SIZE.contentWidth};
   margin: 100px auto 0;
 
-  @media (max-width: ${SIZE.content_width}) {
+  @media (max-width: ${SIZE.contentWidth}) {
     width: 100%;
     margin-top: 50px;
     padding: 0 20px;

@@ -17,7 +17,7 @@ const Wrapper = styled.footer`
   text-align: center;
   line-height: 1.5;
 
-  @media (max-width: ${SIZE.content_width}) {
+  @media (max-width: ${SIZE.contentWidth}) {
     font-size: ${TYPOGRAPHY.small};
   }
 `

@@ -22,7 +22,7 @@ const Wrapper = styled(GatsbyImage)`
   margin-bottom: 30px;
   border-radius: 50%;
 
-  @media (max-width: ${SIZE.content_width}) {
+  @media (max-width: ${SIZE.contentWidth}) {
     width: ${SMALL_IMAGE_SIZE};
     height: ${SMALL_IMAGE_SIZE};
   }
