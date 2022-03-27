@@ -1,6 +1,4 @@
-import styled from '@emotion/styled'
-import Footer from 'components/Common/Footer'
-import GlobalStyle from 'components/Common/GlobalStyle'
+import Template from 'components/Common/Template'
 import CategoryList from 'components/Main/CategoryList'
 import Introdution from 'components/Main/Introdution'
 import PostList from 'components/Main/PostList'
@@ -56,16 +54,14 @@ const Page = function ({
   )
 
   return (
-    <Container>
-      <GlobalStyle />
+    <Template>
       <Introdution profileImage={gatsbyImageData} />
       <CategoryList
         selectedCategory={selectedCategory}
         categoryList={categoryList}
       />
       <PostList selectedCategory={selectedCategory} posts={edges} />
-      <Footer />
-    </Container>
+    </Template>
   )
 }
 
@@ -102,10 +98,4 @@ export const getPostList = graphql`
       }
     }
   }
-`
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
 `
