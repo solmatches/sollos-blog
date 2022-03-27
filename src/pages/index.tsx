@@ -90,6 +90,9 @@ export const getPostList = graphql`
               }
             }
           }
+          fields {
+            slug
+          }
         }
       }
     }

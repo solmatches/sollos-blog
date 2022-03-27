@@ -38,9 +38,17 @@ const PostList = function ({
 
   return (
     <Wrapper ref={scrollTarget}>
-      {displayPosts.map(({ node: { id, frontmatter } }) => (
-        <PostItem {...frontmatter} key={id} link="/" />
-      ))}
+      {displayPosts.map(
+        ({
+          node: {
+            id,
+            frontmatter,
+            fields: { slug },
+          },
+        }) => (
+          <PostItem {...frontmatter} key={id} link={slug} />
+        ),
+      )}
     </Wrapper>
   )
 }

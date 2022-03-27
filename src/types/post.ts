@@ -16,6 +16,7 @@ export interface PostProps {
   node: {
     id: string
     frontmatter: PostItemProps
+    fields: { slug: string }
   }
 }
 
