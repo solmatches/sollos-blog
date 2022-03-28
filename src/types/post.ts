@@ -4,10 +4,13 @@ interface ImageSharpType {
   childImageSharp: { gatsbyImageData: IGatsbyImageData }
 }
 
-export interface PostItemProps {
+export interface PostHeadInfoProps {
   title: string
   date: string
   categories: string[]
+}
+
+export interface PostItemProps extends PostHeadInfoProps {
   summary: string
   thumbnail: ImageSharpType
 }

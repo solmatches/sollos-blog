@@ -2,11 +2,16 @@ import styled from '@emotion/styled'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 
 import { SIZE } from '~/styles'
+import { PostHeadInfoProps } from '~/types/post'
 
-const PostHead = function ({ thumbnail }: { thumbnail: IGatsbyImageData }) {
+import PostHeadInfo from './PostHeadInfo'
+
+type Props = PostHeadInfoProps & { thumbnail: IGatsbyImageData }
+const PostHead = function ({ thumbnail, ...props }: Props) {
   return (
     <Wrapper>
       <BackgroundImage image={thumbnail} alt="포스트 썸네일" />
+      <PostHeadInfo {...props} />
     </Wrapper>
   )
 }

@@ -11,6 +11,7 @@ export const SIZE = {
 } as const
 
 export const TYPOGRAPHY = {
+  titleLarge: '4.6rem',
   title: '3.6rem',
   smallTitle: '2.6rem',
   subTitle: '2rem',
