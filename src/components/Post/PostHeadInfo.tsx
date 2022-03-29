@@ -53,7 +53,7 @@ const Title = styled.div`
   overflow: hidden;
   overflow-wrap: break-word;
   margin-top: auto;
-  font-size: ${TYPOGRAPHY.titleLarge};
+  font-size: ${TYPOGRAPHY.largeTitle};
   font-weight: 800;
   ${lineClamp()};
 `

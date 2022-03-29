@@ -3,6 +3,7 @@ export const COLOR = {
   backgroundDark: '#29323c',
   black: '#000',
   white: '#fff',
+  primary: '#4263eb',
 } as const
 
 export const SIZE = {
@@ -11,8 +12,9 @@ export const SIZE = {
 } as const
 
 export const TYPOGRAPHY = {
-  titleLarge: '4.6rem',
+  largeTitle: '4.6rem',
   title: '3.6rem',
+  postTitle: '3.0rem',
   smallTitle: '2.6rem',
   subTitle: '2rem',
   large: '1.8rem',
