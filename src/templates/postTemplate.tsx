@@ -1,4 +1,5 @@
 import Template from 'components/Common/Template'
+import PostContent from 'components/Post/PostContent'
 import PostHead from 'components/Post/PostHead'
 import { graphql } from 'gatsby'
 
@@ -39,6 +40,7 @@ const PostTemplate = function ({
   return (
     <Template>
       <PostHead {...frontProps} thumbnail={gatsbyImageData} />
+      <PostContent html={html} />
     </Template>
   )
 }
