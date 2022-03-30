@@ -94,6 +94,19 @@ const markdownStyle = css`
   pre[class*='language-'] {
     tab-size: 2;
   }
+
+  @media (max-width: ${SIZE.contentWidth}) {
+    width: 100%;
+    padding: 80px 20px;
+    line-height: 1.6;
+
+    img {
+      width: 100%;
+    }
+    hr {
+      margin: 50px 0;
+    }
+  }
 `
 
 const MarkdownRenderer = styled.div`

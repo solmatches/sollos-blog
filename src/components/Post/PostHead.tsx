@@ -21,6 +21,10 @@ export default PostHead
 const Wrapper = styled.div`
   position: relative;
   height: ${SIZE.headerHeight};
+
+  @media (max-width: ${SIZE.contentWidth}) {
+    height: ${SIZE.headerHeightMobile};
+  }
 `
 
 const BackgroundImage = styled(GatsbyImage)`
@@ -30,4 +34,8 @@ const BackgroundImage = styled(GatsbyImage)`
   height: ${SIZE.headerHeight};
   object-fit: cover;
   filter: brightness(0.25);
+
+  @media (max-width: ${SIZE.contentWidth}) {
+    height: ${SIZE.headerHeightMobile};
+  }
 `

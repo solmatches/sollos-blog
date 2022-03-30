@@ -12,7 +12,7 @@ const Wrapper = styled.footer`
   display: grid;
   place-items: center;
   margin-top: auto;
-  padding: 50px 0;
+  padding: 50px 20px;
   font-size: 15px;
   text-align: center;
   line-height: 1.5;

@@ -1,4 +1,7 @@
+import styled from '@emotion/styled'
 import { createRef, useEffect } from 'react'
+
+import { SIZE } from '~/styles'
 
 interface UtterancesAttributesType {
   src: string
@@ -35,7 +38,13 @@ const CommentWidget = function () {
     element.current.appendChild(utterances)
   }, [])
 
-  return <div ref={element} />
+  return <Wrapper ref={element} />
 }
 
 export default CommentWidget
+
+const Wrapper = styled.div`
+  @media (max-width: ${SIZE.contentWidth}) {
+    padding: 0 20px;
+  }
+`

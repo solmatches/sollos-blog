@@ -9,6 +9,7 @@ export const COLOR = {
 export const SIZE = {
   contentWidth: '768px',
   headerHeight: '400px',
+  headerHeightMobile: '300px',
 } as const
 
 export const TYPOGRAPHY = {

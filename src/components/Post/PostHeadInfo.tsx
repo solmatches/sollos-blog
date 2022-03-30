@@ -6,6 +6,7 @@ import { COLOR, lineClamp, SIZE, TYPOGRAPHY } from '~/styles'
 import { PostHeadInfoProps } from '~/types/post'
 
 const ICON_SIZE = '40px'
+const ICON_SIZE_MOBILE = '30px'
 
 const PostHeadInfo = function ({ title, date, categories }: PostHeadInfoProps) {
   const goBackPage = () => window.history.back()
@@ -34,6 +35,11 @@ const Wrapper = styled.div`
   margin: 0 auto;
   padding: 60px 0;
   color: ${COLOR.white};
+
+  @media (max-width: ${SIZE.contentWidth}) {
+    width: 100%;
+    padding: 40px 20px;
+  }
 `
 
 const PreviousIcon = styled.div`
@@ -47,6 +53,12 @@ const PreviousIcon = styled.div`
   font-size: ${TYPOGRAPHY.subTitle};
   cursor: pointer;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: ${SIZE.contentWidth}) {
+    width: ${ICON_SIZE_MOBILE};
+    height: ${ICON_SIZE_MOBILE};
+    font-size: ${TYPOGRAPHY.large};
+  }
 `
 const Title = styled.div`
   display: flex;
@@ -56,6 +68,10 @@ const Title = styled.div`
   font-size: ${TYPOGRAPHY.largeTitle};
   font-weight: 800;
   ${lineClamp()};
+
+  @media (max-width: ${SIZE.contentWidth}) {
+    font-size: ${TYPOGRAPHY.postTitle};
+  }
 `
 
 const PostInfo = styled.div`
@@ -65,4 +81,11 @@ const PostInfo = styled.div`
   margin-top: 10px;
   font-size: ${TYPOGRAPHY.large};
   font-weight: 700;
+
+  @media (max-width: ${SIZE.contentWidth}) {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: ${TYPOGRAPHY.medium};
+    font-weight: 400;
+  }
 `
