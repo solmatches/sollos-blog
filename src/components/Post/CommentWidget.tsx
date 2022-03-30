@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { createRef, useEffect } from 'react'
 
-import { SIZE } from '~/styles'
+import { MEDIA_QUERY } from '~/styles'
 
 interface UtterancesAttributesType {
   src: string
@@ -44,7 +44,7 @@ const CommentWidget = function () {
 export default CommentWidget
 
 const Wrapper = styled.div`
-  @media (max-width: ${SIZE.contentWidth}) {
+  ${MEDIA_QUERY.mobile} {
     padding: 0 20px;
   }
 `

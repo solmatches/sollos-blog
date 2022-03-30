@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 
-import { SIZE } from '~/styles'
+import { MEDIA_QUERY, SIZE } from '~/styles'
 import { PostHeadInfoProps } from '~/types/post'
 
 import PostHeadInfo from './PostHeadInfo'
@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   position: relative;
   height: ${SIZE.headerHeight};
 
-  @media (max-width: ${SIZE.contentWidth}) {
+  ${MEDIA_QUERY.mobile} {
     height: ${SIZE.headerHeightMobile};
   }
 `
@@ -35,7 +35,7 @@ const BackgroundImage = styled(GatsbyImage)`
   object-fit: cover;
   filter: brightness(0.25);
 
-  @media (max-width: ${SIZE.contentWidth}) {
+  ${MEDIA_QUERY.mobile} {
     height: ${SIZE.headerHeightMobile};
   }
 `

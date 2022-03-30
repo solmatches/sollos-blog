@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 
-import { SIZE } from '~/styles'
+import { MEDIA_QUERY } from '~/styles'
 
 const IMAGE_SIZE = '120px'
 const SMALL_IMAGE_SIZE = '80px'
@@ -22,7 +22,7 @@ const Wrapper = styled(GatsbyImage)`
   margin-bottom: 30px;
   border-radius: 50%;
 
-  @media (max-width: ${SIZE.contentWidth}) {
+  ${MEDIA_QUERY.mobile} {
     width: ${SMALL_IMAGE_SIZE};
     height: ${SMALL_IMAGE_SIZE};
   }

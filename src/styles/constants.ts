@@ -1,3 +1,5 @@
+import { mediaQuery } from './functions'
+
 export const COLOR = {
   backgroundLight: '#485563',
   backgroundDark: '#29323c',
@@ -22,3 +24,7 @@ export const TYPOGRAPHY = {
   medium: '1.6rem',
   small: '1.4rem',
 } as const
+
+export const MEDIA_QUERY = {
+  mobile: mediaQuery(SIZE.contentWidth),
+}

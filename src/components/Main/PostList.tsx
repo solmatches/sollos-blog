@@ -3,7 +3,7 @@ import { useInfiniteScroll } from 'hooks/useInfiniteScroll'
 import { useMemo } from 'react'
 
 import { DEFAULT_CATEGORY } from '~/constants/category'
-import { SIZE } from '~/styles'
+import { MEDIA_QUERY, SIZE } from '~/styles'
 import { CategoryListProps, PostProps } from '~/types/post'
 
 import PostItem from './PostItem'
@@ -63,7 +63,7 @@ const Wrapper = styled.div`
   margin: 0 auto;
   padding: 50px 0 100px;
 
-  @media (max-width: ${SIZE.contentWidth}) {
+  ${MEDIA_QUERY.mobile} {
     grid-template-columns: 1fr;
     width: 100%;
     padding: 50px 20px;

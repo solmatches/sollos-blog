@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 
-import { COLOR, SIZE, TYPOGRAPHY } from '~/styles'
+import { COLOR, MEDIA_QUERY, SIZE, TYPOGRAPHY } from '~/styles'
 
 import ProfileImage from './ProfileImage'
 
@@ -44,7 +44,7 @@ const Wrapper = styled.div`
   margin: 0 auto;
   padding: 0 1.8rem;
 
-  @media (max-width: ${SIZE.contentWidth}) {
+  ${MEDIA_QUERY.mobile} {
     width: 100%;
     height: 300px;
     padding: 0 20px;
@@ -55,7 +55,7 @@ const SubTitle = styled.div`
   font-size: ${TYPOGRAPHY.subTitle};
   font-weight: 400;
 
-  @media (max-width: ${SIZE.contentWidth}) {
+  ${MEDIA_QUERY.mobile} {
     font-size: ${TYPOGRAPHY.medium};
   }
 `
@@ -64,7 +64,7 @@ const Title = styled.div`
   font-size: ${TYPOGRAPHY.title};
   font-weight: 700;
 
-  @media (max-width: ${SIZE.contentWidth}) {
+  ${MEDIA_QUERY.mobile} {
     font-size: ${TYPOGRAPHY.smallTitle};
   }
 `

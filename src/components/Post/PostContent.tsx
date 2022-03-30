@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
-import { COLOR, SIZE, TYPOGRAPHY } from '~/styles'
+import { COLOR, MEDIA_QUERY, SIZE, TYPOGRAPHY } from '~/styles'
 
 const PostContent = function ({ html }: { html: string }) {
   return <MarkdownRenderer dangerouslySetInnerHTML={{ __html: html }} />
@@ -95,7 +95,7 @@ const markdownStyle = css`
     tab-size: 2;
   }
 
-  @media (max-width: ${SIZE.contentWidth}) {
+  ${MEDIA_QUERY.mobile} {
     width: 100%;
     padding: 80px 20px;
     line-height: 1.6;

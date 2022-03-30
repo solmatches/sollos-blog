@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { COLOR, lineClamp, SIZE, TYPOGRAPHY } from '~/styles'
+import { COLOR, lineClamp, MEDIA_QUERY, SIZE, TYPOGRAPHY } from '~/styles'
 import { PostHeadInfoProps } from '~/types/post'
 
 const ICON_SIZE = '40px'
@@ -36,7 +36,7 @@ const Wrapper = styled.div`
   padding: 60px 0;
   color: ${COLOR.white};
 
-  @media (max-width: ${SIZE.contentWidth}) {
+  ${MEDIA_QUERY.mobile} {
     width: 100%;
     padding: 40px 20px;
   }
@@ -54,7 +54,7 @@ const PreviousIcon = styled.div`
   cursor: pointer;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 
-  @media (max-width: ${SIZE.contentWidth}) {
+  ${MEDIA_QUERY.mobile} {
     width: ${ICON_SIZE_MOBILE};
     height: ${ICON_SIZE_MOBILE};
     font-size: ${TYPOGRAPHY.large};
@@ -69,7 +69,7 @@ const Title = styled.div`
   font-weight: 800;
   ${lineClamp()};
 
-  @media (max-width: ${SIZE.contentWidth}) {
+  ${MEDIA_QUERY.mobile} {
     font-size: ${TYPOGRAPHY.postTitle};
   }
 `
@@ -82,7 +82,7 @@ const PostInfo = styled.div`
   font-size: ${TYPOGRAPHY.large};
   font-weight: 700;
 
-  @media (max-width: ${SIZE.contentWidth}) {
+  ${MEDIA_QUERY.mobile} {
     flex-direction: column;
     align-items: flex-start;
     font-size: ${TYPOGRAPHY.medium};

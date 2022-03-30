@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
-import { SIZE, TYPOGRAPHY } from '~/styles'
+import { MEDIA_QUERY, SIZE, TYPOGRAPHY } from '~/styles'
 import { CategoryListProps } from '~/types/post'
 
 const CategoryList = function ({
@@ -38,7 +38,7 @@ const CategoryItem = styled(Link, {
     margin-right: 0;
   }
 
-  @media (max-width: ${SIZE.contentWidth}) {
+  ${MEDIA_QUERY.mobile} {
     font-size: ${TYPOGRAPHY.medium};
   }
 `
@@ -49,7 +49,7 @@ const Wrapper = styled.div`
   width: ${SIZE.contentWidth};
   margin: 100px auto 0;
 
-  @media (max-width: ${SIZE.contentWidth}) {
+  ${MEDIA_QUERY.mobile} {
     width: 100%;
     margin-top: 50px;
     padding: 0 20px;
