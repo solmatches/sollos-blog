@@ -19,11 +19,14 @@ interface PostTemplateProps {
       edges: PostItemPageProps[]
     }
   }
+  location: { href: string }
 }
+
 const PostTemplate = function ({
   data: {
     allMarkdownRemark: { edges },
   },
+  location: { href }, // 쿼리 사용이 가능한 페이지에서는 location 을 기본으로 받을 수 있다.
 }: PostTemplateProps) {
   const {
     node: {
@@ -32,6 +35,7 @@ const PostTemplate = function ({
         summary,
         thumbnail: {
           childImageSharp: { gatsbyImageData },
+          publicURL,
         },
         ...frontProps
       },
@@ -39,7 +43,12 @@ const PostTemplate = function ({
   } = edges[0]
 
   return (
-    <Template>
+    <Template
+      {...frontProps}
+      description={summary}
+      url={href}
+      image={publicURL}
+    >
       <PostHead {...frontProps} thumbnail={gatsbyImageData} />
       <PostContent html={html} />
       <CommentWidget />
@@ -70,6 +79,7 @@ export const queryMarkdownDataBySlug = graphql`
               childImageSharp {
                 gatsbyImageData
               }
+              publicURL
             }
           }
         }

@@ -2,6 +2,7 @@ import { IGatsbyImageData } from 'gatsby-plugin-image'
 
 interface ImageSharpType {
   childImageSharp: { gatsbyImageData: IGatsbyImageData }
+  publicURL: string
 }
 
 export interface PostHeadInfoProps {
@@ -23,8 +24,16 @@ export interface PostProps {
   }
 }
 
+export interface SiteMetaDataProps {
+  siteMetadata: {
+    title: string
+    description: string
+    stieUrl: string
+  }
+}
 export interface PostDataProps {
   data: {
+    site: SiteMetaDataProps
     allMarkdownRemark: {
       edges: PostProps[]
     }

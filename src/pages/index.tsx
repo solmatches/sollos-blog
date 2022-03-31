@@ -17,9 +17,11 @@ type PageProps = PostDataProps & { location: { search: string } }
 const Page = function ({
   location: { search },
   data: {
+    site: { siteMetadata },
     allMarkdownRemark: { edges },
     file: {
       childImageSharp: { gatsbyImageData },
+      publicURL,
     },
   },
 }: PageProps) {
@@ -54,7 +56,7 @@ const Page = function ({
   )
 
   return (
-    <Template>
+    <Template {...siteMetadata} url={siteMetadata.stieUrl} image={publicURL}>
       <Introdution profileImage={gatsbyImageData} />
       <CategoryList
         selectedCategory={selectedCategory}
@@ -69,6 +71,13 @@ export default Page
 
 export const getPostList = graphql`
   query getPostList {
+    site {
+      siteMetadata {
+        title
+        description
+        siteUrl
+      }
+    }
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
     ) {
@@ -96,6 +105,7 @@ export const getPostList = graphql`
       childImageSharp {
         gatsbyImageData(width: 120, height: 120)
       }
+      publicURL
     }
   }
 `
