@@ -34,7 +34,7 @@ const BackgroundContainer = styled.div`
   color: ${COLOR.white};
 `
 
-const Wrapper = styled.div`
+const Wrapper = styled.header`
   display: flex;
   flex-direction: column;
   justify-content: center;

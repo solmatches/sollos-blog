@@ -23,7 +23,9 @@ const Template = function ({
   return (
     <Container>
       <Helmet>
+        <html lang="ko" />
         <title>{title}</title>
+
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="Content-Type" content="text/hrml;charset=UTF-8" />
@@ -52,7 +54,7 @@ const Template = function ({
 
 export default Template
 
-const Container = styled.div`
+const Container = styled.main`
   display: flex;
   flex-direction: column;
   height: 100%;
