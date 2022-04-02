@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `개발 발자국 블로그`,
+    title: `개발자국`,
     description: `개발 공부한 흔적을 남기는 블로그입니다`,
     author: `mikaboo`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
