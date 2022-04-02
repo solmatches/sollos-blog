@@ -19,13 +19,17 @@ export function useInfiniteScroll<T>({
   resetDeps,
 }: Props<T>): ReturnProps {
   const target = useRef<HTMLDivElement | null>(null)
+  const observer = useRef<IntersectionObserver | null>(null)
   const [pageCount, setPageCount] = useState(INTITIAL_PAGE)
 
-  const observer = new IntersectionObserver((entries, observer) => {
-    if (!entries[0].isIntersecting) return
-    setPageCount(count => count + 1)
-    observer.disconnect()
-  })
+  useEffect(() => {
+    observer.current = new IntersectionObserver((entries, observer) => {
+      const [lastChild] = entries
+      if (!lastChild.isIntersecting) return
+      setPageCount(count => count + 1)
+      observer.unobserve(lastChild.target)
+    })
+  }, [])
 
   useEffect(() => {
     setPageCount(INTITIAL_PAGE)
@@ -38,9 +42,9 @@ export function useInfiniteScroll<T>({
     const { children: containerChilds } = target.current
     const lastChildren = containerChilds[containerChilds.length - 1]
 
-    observer.observe(lastChildren)
+    observer.current?.observe(lastChildren)
 
-    return () => observer.disconnect()
+    return () => observer.current?.disconnect()
   }, [allPostCount, pageCount])
 
   return {
