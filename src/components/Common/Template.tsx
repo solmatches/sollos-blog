@@ -48,6 +48,10 @@ const Template = function ({
           name="google-site-verification"
           content="PUPMLIuKRemEIR83Z312HmeX0O1CGhsNvDTctZF7bQE"
         />
+        <meta
+          name="naver-site-verification"
+          content="94825d67edb0fd2f3fff9d28b1b9c8943358ddcd"
+        />
       </Helmet>
 
       <GlobalStyle />
