@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunksollos_blog=self.webpackChunksollos_blog||[]).push([[977],{4466:function(t,l,a){a.r(l);var e=a(1597),o=a(3431);l.default=function(t){var l=t.data.site.siteMetadata,a=l.title,s=l.description,i=l.author;return(0,o.tZ)("div",null,(0,o.tZ)("div",null,a),s," ",i,(0,o.tZ)(e.rU,{to:"/"},"To Main"))}}}]);
+//# sourceMappingURL=component---src-pages-info-tsx-6560dbd2a669d0888c7c.js.map

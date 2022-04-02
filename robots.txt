@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://solmatches.github.io/sitemap/sitemap-index.xml
+Host: https://solmatches.github.io
