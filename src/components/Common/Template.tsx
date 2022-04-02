@@ -43,6 +43,11 @@ const Template = function ({
         <meta name="twitter:image" content={image} />
         <meta name="twitter:site" content="mikaboo" />
         <meta name="twitter:creator" content="mikaboo" />
+
+        <meta
+          name="google-site-verification"
+          content="PUPMLIuKRemEIR83Z312HmeX0O1CGhsNvDTctZF7bQE"
+        />
       </Helmet>
 
       <GlobalStyle />
