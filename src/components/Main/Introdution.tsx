@@ -16,7 +16,7 @@ const Introdution = function ({
         <ProfileImage profileImage={profileImage} />
         <div>
           <SubTitle>안녕하세요!</SubTitle>
-          <Title>프론트엔드 개발자 김소라입니다.</Title>
+          <Title>블로그 준비중</Title>
         </div>
       </Wrapper>
     </BackgroundContainer>
