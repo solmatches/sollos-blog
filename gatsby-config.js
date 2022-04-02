@@ -3,7 +3,7 @@ module.exports = {
     title: `개발자국`,
     description: `개발 공부한 흔적을 남기는 블로그입니다`,
     author: `mikaboo`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    siteUrl: `https://solmatches.github.io/`,
   },
   plugins: [
     {
@@ -80,5 +80,12 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: 'https://solmatches.github.io',
+        stripQueryString: true,
+      },
+    },
   ],
 }
