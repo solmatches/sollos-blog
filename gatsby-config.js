@@ -83,7 +83,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: 'https://solmatches.github.io',
+        siteUrl: 'https://solmatches.github.io/',
         stripQueryString: true,
       },
     },
